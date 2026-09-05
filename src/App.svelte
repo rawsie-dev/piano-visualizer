@@ -146,7 +146,7 @@
 	let isPianoLoaded = false;
 
 	let sustainPedal = false;
-  const pixelsPerSecond = 200;
+  const pixelsPerSecond = 180;
   let isScheduled = false;
 
 	const heldNotes = new Set<string>();
