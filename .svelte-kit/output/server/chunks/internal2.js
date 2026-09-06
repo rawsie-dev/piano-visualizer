@@ -1036,7 +1036,7 @@ var options = {
 		app: ({ head, body, assets, nonce, env }) => "<!doctype html>\n<html lang=\"en\">\n	<head>\n		<meta charset=\"utf-8\" />\n		<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n		" + head + "\n	</head>\n\n	<body data-sveltekit-preload-data=\"hover\">\n		<div style=\"display: contents\">" + body + "</div>\n	</body>\n</html>",
 		error: error_template_default
 	},
-	version_hash: "1aja8pk"
+	version_hash: "1wqd76j"
 };
 async function get_hooks() {
 	let handle;
