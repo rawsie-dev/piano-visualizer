@@ -66,7 +66,7 @@ function _page($$renderer, $$props) {
 		function getBlackKeyPosition(midi) {
 			return whiteKeyMidis.filter((key) => key < midi).length / whiteKeyMidis.length * 100;
 		}
-		$$renderer.push(`<div class="visualizer svelte-1uha8ag"><div class="notes svelte-1uha8ag"><!--[-->`);
+		$$renderer.push(`<div class="app svelte-1uha8ag"><div class="visualizer svelte-1uha8ag"><div class="notes svelte-1uha8ag"><!--[-->`);
 		const each_array = ensure_array_like(visibleNotes());
 		for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
 			let note = each_array[$$index];
@@ -88,7 +88,7 @@ function _page($$renderer, $$props) {
 		}
 		$$renderer.push(`<!--]--></div></div></div> `);
 		$$renderer.push(`<!--[-1--><p>Loading MIDI...</p>`);
-		$$renderer.push(`<!--]--> <div class="next-track-container svelte-1uha8ag"><button class="next-track">Next track</button></div>`);
+		$$renderer.push(`<!--]--> <div class="next-track-container svelte-1uha8ag"><button class="next-track">Next track</button></div></div>`);
 	});
 }
 //#endregion

@@ -96,11 +96,11 @@
     ]
   },
   "src/lib/assets/midi/Awakening.mid": {
-    "file": "_app/immutable/assets/Awakening.zkzU9iXG.mid",
+    "file": "_app/immutable/assets/Awakening.CNvDOuiR.mid",
     "src": "src/lib/assets/midi/Awakening.mid"
   },
   "src/lib/assets/midi/Rawsie.mid": {
-    "file": "_app/immutable/assets/Rawsie.3REJPB0o.mid",
+    "file": "_app/immutable/assets/Rawsie.Cx-nrikF.mid",
     "src": "src/lib/assets/midi/Rawsie.mid"
   },
   "src/routes/+layout.svelte": {
@@ -131,11 +131,11 @@
       "_server.js"
     ],
     "css": [
-      "_app/immutable/assets/_page.DP9OvjW4.css"
+      "_app/immutable/assets/_page.DpBPTXAf.css"
     ],
     "assets": [
-      "_app/immutable/assets/Awakening.zkzU9iXG.mid",
-      "_app/immutable/assets/Rawsie.3REJPB0o.mid"
+      "_app/immutable/assets/Awakening.CNvDOuiR.mid",
+      "_app/immutable/assets/Rawsie.Cx-nrikF.mid"
     ]
   },
   "src/routes/+page.ts": {

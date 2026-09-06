@@ -7,10 +7,10 @@ function __memo(fn) {
 return {
 	appDir: "_app",
 	appPath: "_app",
-	assets: new Set(["favicon.svg","icons.svg","piano/A0.mp3","piano/A1.mp3","piano/A2.mp3","piano/A3.mp3","piano/A4.mp3","piano/A5.mp3","piano/A6.mp3","piano/A7.mp3","piano/C1.mp3","piano/C2.mp3","piano/C3.mp3","piano/C4.mp3","piano/C5.mp3","piano/C6.mp3","piano/C7.mp3","piano/C8.mp3","piano/Ds1.mp3","piano/Ds2.mp3","piano/Ds3.mp3","piano/Ds4.mp3","piano/Ds5.mp3","piano/Ds6.mp3","piano/Ds7.mp3","piano/Fs1.mp3","piano/Fs2.mp3","piano/Fs3.mp3","piano/Fs4.mp3","piano/Fs5.mp3","piano/Fs6.mp3","piano/Fs7.mp3"]),
-	mimeTypes: {".svg":"image/svg+xml",".mp3":"audio/mpeg"},
+	assets: new Set(["favicon.png","favicon.svg","piano/A0.mp3","piano/A1.mp3","piano/A2.mp3","piano/A3.mp3","piano/A4.mp3","piano/A5.mp3","piano/A6.mp3","piano/A7.mp3","piano/C1.mp3","piano/C2.mp3","piano/C3.mp3","piano/C4.mp3","piano/C5.mp3","piano/C6.mp3","piano/C7.mp3","piano/C8.mp3","piano/Ds1.mp3","piano/Ds2.mp3","piano/Ds3.mp3","piano/Ds4.mp3","piano/Ds5.mp3","piano/Ds6.mp3","piano/Ds7.mp3","piano/Fs1.mp3","piano/Fs2.mp3","piano/Fs3.mp3","piano/Fs4.mp3","piano/Fs5.mp3","piano/Fs6.mp3","piano/Fs7.mp3"]),
+	mimeTypes: {".png":"image/png",".svg":"image/svg+xml",".mp3":"audio/mpeg"},
 	_: {
-		client: {start:"_app/immutable/entry/start.DYya-Cfn.js",app:"_app/immutable/entry/app.Dk4ZzJEL.js",imports:["_app/immutable/entry/start.DYya-Cfn.js","_app/immutable/chunks/CgZ-KmsT.js","_app/immutable/chunks/DODMdrAD.js","_app/immutable/entry/app.Dk4ZzJEL.js","_app/immutable/chunks/DODMdrAD.js","_app/immutable/chunks/xihTtKlq.js"],stylesheets:[],fonts:[],uses_env_dynamic_public:false},
+		client: {start:"_app/immutable/entry/start.WW8NRVrA.js",app:"_app/immutable/entry/app.C4uoJ2w_.js",imports:["_app/immutable/entry/start.WW8NRVrA.js","_app/immutable/chunks/Da8v8gRa.js","_app/immutable/chunks/Df84TsxU.js","_app/immutable/entry/app.C4uoJ2w_.js","_app/immutable/chunks/Df84TsxU.js","_app/immutable/chunks/xihTtKlq.js"],stylesheets:[],fonts:[],uses_env_dynamic_public:false},
 		nodes: [
 			__memo(() => import('./nodes/0.js')),
 			__memo(() => import('./nodes/1.js')),

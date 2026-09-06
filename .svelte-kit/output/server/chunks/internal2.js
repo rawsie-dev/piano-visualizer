@@ -1,6 +1,6 @@
 import "./index-server.js";
 import "./internal.js";
-import { $ as queue_micro_task, A as block, B as create_text, Ct as LEGACY_PROPS, D as set_active_effect, E as get, F as move_effect, G as internal_set, H as get_next_sibling, I as pause_effect, J as source, K as mutable_source, L as render_effect, M as component_root, N as destroy_effect, O as set_active_reaction, P as effect_tracking, Q as defer_effect, R as invoke_error_boundary, St as EFFECT_TRANSPARENT, T as active_reaction, Tt as define_property, U as init_operations, V as get_first_child, W as increment, X as current_batch, Y as Batch, Z as flushSync, _ as setContext, _t as hydration_mismatch, a as render, bt as HYDRATION_ERROR, ct as svelte_boundary_reset_onerror, dt as hydrate_node, et as component_context, ft as hydrating, gt as skip_nodes, ht as set_hydrating, it as set_component_context, j as branch, k as untrack, mt as set_hydrate_node, nt as pop, ot as async_mode_flag, pt as next, q as set, r as derived, rt as push, st as hydration_failed, tt as mark_as_component, ut as hydrate_next, w as active_effect, wt as array_from, x as is_passive_event, xt as EFFECT_PRESERVED, yt as svelte_boundary_reset_noop, z as clear_text_content } from "./server.js";
+import { $ as queue_micro_task, A as block, B as create_text, Ct as LEGACY_PROPS, D as set_active_effect, E as get, F as move_effect, G as internal_set, H as get_next_sibling, I as pause_effect, J as source, K as mutable_source, L as render_effect, M as component_root, N as destroy_effect, O as set_active_reaction, P as effect_tracking, Q as defer_effect, R as invoke_error_boundary, St as EFFECT_TRANSPARENT, T as active_reaction, Tt as define_property, U as init_operations, V as get_first_child, W as increment, X as current_batch, Y as Batch, Z as flushSync, _ as setContext, _t as hydration_mismatch, bt as HYDRATION_ERROR, ct as svelte_boundary_reset_onerror, dt as hydrate_node, et as component_context, ft as hydrating, gt as skip_nodes, ht as set_hydrating, it as set_component_context, j as branch, k as untrack, mt as set_hydrate_node, nt as pop, o as render, ot as async_mode_flag, pt as next, q as set, r as derived, rt as push, st as hydration_failed, tt as mark_as_component, ut as hydrate_next, w as active_effect, wt as array_from, x as is_passive_event, xt as EFFECT_PRESERVED, yt as svelte_boundary_reset_noop, z as clear_text_content } from "./server.js";
 /**
 * `$env/dynamic/public`
 * @type {Record<string, string>}
@@ -1033,10 +1033,10 @@ var options = {
 	service_worker_options: void 0,
 	server_error_boundaries: false,
 	templates: {
-		app: ({ head, body, assets, nonce, env }) => "<!doctype html>\n<html lang=\"en\">\n	<head>\n		<meta charset=\"utf-8\" />\n		<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n		" + head + "\n	</head>\n\n	<body data-sveltekit-preload-data=\"hover\">\n		<div style=\"display: contents\">" + body + "</div>\n	</body>\n</html>",
+		app: ({ head, body, assets, nonce, env }) => "<!doctype html>\n<html lang=\"en\">\n	<head>\n		<meta charset=\"utf-8\" />\n		<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n		" + head + "\n	</head>\n\n	<body data-sveltekit-preload-data=\"hover\">\n		<div style=\"display: contents\">" + body + "</div>\n\n        <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{\"token\": \"9695ef9fadf6435f9ca9fbbd51feac5d\"}'><\/script><!-- End Cloudflare Web Analytics -->\n	</body>\n</html>",
 		error: error_template_default
 	},
-	version_hash: "151r9th"
+	version_hash: "16vyx8a"
 };
 async function get_hooks() {
 	let handle;
