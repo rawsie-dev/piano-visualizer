@@ -1,0 +1,11 @@
+
+
+export const index = 2;
+export const universal = {
+  "prerender": true,
+  "ssr": false
+};
+export const universal_id = "src/routes/+page.ts";
+export const imports = ["_app/immutable/nodes/2.UMkUklSj.js","_app/immutable/chunks/DODMdrAD.js","_app/immutable/chunks/xihTtKlq.js"];
+export const stylesheets = ["_app/immutable/assets/2.DP9OvjW4.css"];
+export const fonts = [];
