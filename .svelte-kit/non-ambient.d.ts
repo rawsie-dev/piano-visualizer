@@ -38,6 +38,6 @@ declare module "$app/types" {
 		};
 		Pathname(): "/";
 		ResolvedPathname(): `${"" | `/${string}`}${ReturnType<AppTypes['Pathname']>}`;
-		Asset(): "/favicon.png" | "/favicon.svg" | "/piano/A0.mp3" | "/piano/A1.mp3" | "/piano/A2.mp3" | "/piano/A3.mp3" | "/piano/A4.mp3" | "/piano/A5.mp3" | "/piano/A6.mp3" | "/piano/A7.mp3" | "/piano/C1.mp3" | "/piano/C2.mp3" | "/piano/C3.mp3" | "/piano/C4.mp3" | "/piano/C5.mp3" | "/piano/C6.mp3" | "/piano/C7.mp3" | "/piano/C8.mp3" | "/piano/Ds1.mp3" | "/piano/Ds2.mp3" | "/piano/Ds3.mp3" | "/piano/Ds4.mp3" | "/piano/Ds5.mp3" | "/piano/Ds6.mp3" | "/piano/Ds7.mp3" | "/piano/Fs1.mp3" | "/piano/Fs2.mp3" | "/piano/Fs3.mp3" | "/piano/Fs4.mp3" | "/piano/Fs5.mp3" | "/piano/Fs6.mp3" | "/piano/Fs7.mp3" | string & {};
+		Asset(): "/apple-touch-icon-precomposed.png" | "/apple-touch-icon.png" | "/favicon.ico" | "/favicon.png" | "/favicon.svg" | "/piano/A0.mp3" | "/piano/A1.mp3" | "/piano/A2.mp3" | "/piano/A3.mp3" | "/piano/A4.mp3" | "/piano/A5.mp3" | "/piano/A6.mp3" | "/piano/A7.mp3" | "/piano/C1.mp3" | "/piano/C2.mp3" | "/piano/C3.mp3" | "/piano/C4.mp3" | "/piano/C5.mp3" | "/piano/C6.mp3" | "/piano/C7.mp3" | "/piano/C8.mp3" | "/piano/Ds1.mp3" | "/piano/Ds2.mp3" | "/piano/Ds3.mp3" | "/piano/Ds4.mp3" | "/piano/Ds5.mp3" | "/piano/Ds6.mp3" | "/piano/Ds7.mp3" | "/piano/Fs1.mp3" | "/piano/Fs2.mp3" | "/piano/Fs3.mp3" | "/piano/Fs4.mp3" | "/piano/Fs5.mp3" | "/piano/Fs6.mp3" | "/piano/Fs7.mp3" | string & {};
 	}
 }
