@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import Awakening from './assets/midi/Awakening.mid';
-  import Rawsie from './assets/midi/Rawsie.mid';
+	import Awakening from '$lib/assets/midi/Awakening.mid';
+  import Rawsie from '$lib/assets/midi/Rawsie.mid';
 	import { Midi } from '@tonejs/midi';
 	import * as Tone from 'tone';
 
   const tracks = [Awakening, Rawsie];
-  let currentTrackIndex = 1;
+  let currentTrackIndex = $state(1);
 
 	type MidiEvent =
 		| {
@@ -85,7 +85,7 @@
   }
 
   function getActiveTrackForKey(midi: number): number | null {
-    const activeTracks = visualNotes
+    const activeTracks = visibleNotes
       .filter(
         (note) =>
           note.midi === midi &&
@@ -101,9 +101,9 @@
     return Math.min(...activeTracks);
   }
 
-	let midiData: Midi | null = null;
-	let midiEvents: MidiEvent[] = [];
-  let visualNotes: VisualNote[] = [];
+	let midiData: Midi | null = $state(null);
+  let midiEvents: MidiEvent[] = [];
+  let visualNotes: VisualNote[] = $state([]);
 
   function isBlackKey(midi: number) {
     const pitchClass = midi % 12;
@@ -139,11 +139,22 @@
 
 	let piano: Tone.Sampler | null = null;
 
-  let currentTime = 0;
   let animationFrame: number | null = null;
 
-	let isPlaying = false;
-	let isPianoLoaded = false;
+	let currentTime = $state(0);
+  let isPlaying = $state(false);
+  let isPianoLoaded = $state(false);
+
+  const LOOKAHEAD_SECONDS = 8;
+
+  let visibleNotes = $derived(
+    visualNotes.filter(
+      (note) =>
+        note.time + note.duration >= currentTime &&
+        note.time <= currentTime + LOOKAHEAD_SECONDS
+    )
+  );
+
 
 	let sustainPedal = false;
   const pixelsPerSecond = 180;
@@ -265,9 +276,13 @@
 
     visualNotes = notes;
 
-    console.log(`Loaded track ${index}:`, tracks[index]);
-    console.log('Total MIDI events:', midiEvents.length);
-    console.log('Number of tracks:', midi.tracks.length);
+    const transport = Tone.getTransport();
+    transport.cancel();
+    transport.position = 0;
+    isScheduled = false;
+    currentTime = 0;
+
+    releaseAllNotes();
   }
 
 	onMount(async () => {
@@ -450,6 +465,27 @@
     }, 1000);
   }
 
+  function releaseAllNotes() {
+    if (!piano) return;
+
+    const now = Tone.now();
+
+    for (const note of heldNotes) {
+      piano.triggerRelease(note, now);
+    }
+
+    for (const note of sustainedNotes) {
+      piano.triggerRelease(note, now);
+    }
+
+    piano.releaseAll();
+
+    heldNotes.clear();
+    sustainedNotes.clear();
+    previewNotes.clear();
+    sustainPedal = false;
+  }
+
 	function stopMidi() {
     const transport = Tone.getTransport();
 
@@ -457,14 +493,9 @@
     transport.cancel();
     transport.position = 0;
 
-    piano?.releaseAll();
-
     cancelPauseReleaseTimer();
 
-    sustainPedal = false;
-    heldNotes.clear();
-    sustainedNotes.clear();
-    previewNotes.clear();
+    releaseAllNotes();
 
     isPlaying = false;
     isScheduled = false;
@@ -489,10 +520,10 @@
   async function nextTrack() {
     stopMidi();
 
-    currentTrackIndex =
-      (currentTrackIndex + 1) % tracks.length;
+    currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
 
     await loadTrack(currentTrackIndex);
+    releaseAllNotes();
   }
 
   function getActiveNotesAtTime(time: number): VisualNote[] {
@@ -634,7 +665,7 @@
 
 <div class="visualizer">
   <div class="notes">
-    {#each visualNotes as note}
+    {#each visibleNotes as note}
       <div
         class="note"
         class:black-note={isBlackKey(note.midi)}
@@ -736,7 +767,7 @@
 </div>
 
 <style>
-	.visualizer {
+	/* .visualizer {
     width: 100%;
     height: 100dvh;
 
@@ -744,7 +775,31 @@
     background: #111;
     position: relative;
     overflow: hidden;
+  } */
+
+  .visualizer {
+    width: 100%;
+    height: 100dvh;
+    max-width: 1300px;
+
+    margin: 0;
+    background: #111;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
   }
+
+  .playback-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    width: 100%;
+    max-width: 1300px;
+    margin: 10px auto 0;
+  }
+
 
 	.keyboard {
     position: absolute;
@@ -838,7 +893,10 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    margin: 10px 0;
+
+    width: 100%;
+    max-width: 1300px;
+    margin: 10px auto;
   }
 
   .seek-slider {
@@ -855,6 +913,9 @@
   .next-track-container {
     display: flex;
     justify-content: center;
-    margin-top: 10px;
+
+    width: 100%;
+    max-width: 1300px;
+    margin: 10px auto;
   }
 </style>
