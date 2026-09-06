@@ -663,6 +663,7 @@
 </script>
 
 
+<div class="app">
 <div class="visualizer">
   <div class="notes">
     {#each visibleNotes as note}
@@ -765,6 +766,7 @@
     Next track
   </button>
 </div>
+</div>
 
 <style>
 	/* .visualizer {
@@ -776,6 +778,19 @@
     position: relative;
     overflow: hidden;
   } */
+  .app {
+    width: 100%;
+    height: 100dvh;
+
+    max-width: 1300px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+
+    box-sizing: border-box;
+    overflow: hidden;
+  }
 
   .visualizer {
     width: 100%;
