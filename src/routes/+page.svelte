@@ -287,6 +287,7 @@
 
 	onMount(async () => {
     await loadTrack(currentTrackIndex);
+    const limiter = new Tone.Limiter(-1).toDestination();
 
 		piano = new Tone.Sampler({
 			urls: {
@@ -339,6 +340,7 @@
 			release: 1,
 
 			baseUrl: '/piano/',
+      attack: 0.005,
 
 			onload: () => {
 				console.log('Piano samples loaded');
@@ -348,7 +350,7 @@
 			onerror: (error) => {
 				console.error('Failed to load piano sample:', error);
 			}
-		}).toDestination();
+		}).connect(limiter);
 	});
 
   function schedulePlayback() {
