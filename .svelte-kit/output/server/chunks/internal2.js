@@ -1036,7 +1036,7 @@ var options = {
 		app: ({ head, body, assets, nonce, env }) => "<!doctype html>\n<html lang=\"en\">\n	<head>\n		<meta charset=\"utf-8\" />\n		<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n		" + head + "\n	</head>\n\n	<body data-sveltekit-preload-data=\"hover\">\n		<div style=\"display: contents\">" + body + "</div>\n\n        <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{\"token\": \"9695ef9fadf6435f9ca9fbbd51feac5d\"}'><\/script><!-- End Cloudflare Web Analytics -->\n	</body>\n</html>",
 		error: error_template_default
 	},
-	version_hash: "hs54re"
+	version_hash: "vwfhip"
 };
 async function get_hooks() {
 	let handle;

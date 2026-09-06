@@ -10,7 +10,7 @@ return {
 	assets: new Set(["apple-touch-icon-precomposed.png","apple-touch-icon.png","favicon.ico","favicon.png","favicon.svg","piano/A0.mp3","piano/A1.mp3","piano/A2.mp3","piano/A3.mp3","piano/A4.mp3","piano/A5.mp3","piano/A6.mp3","piano/A7.mp3","piano/C1.mp3","piano/C2.mp3","piano/C3.mp3","piano/C4.mp3","piano/C5.mp3","piano/C6.mp3","piano/C7.mp3","piano/C8.mp3","piano/Ds1.mp3","piano/Ds2.mp3","piano/Ds3.mp3","piano/Ds4.mp3","piano/Ds5.mp3","piano/Ds6.mp3","piano/Ds7.mp3","piano/Fs1.mp3","piano/Fs2.mp3","piano/Fs3.mp3","piano/Fs4.mp3","piano/Fs5.mp3","piano/Fs6.mp3","piano/Fs7.mp3"]),
 	mimeTypes: {".png":"image/png",".svg":"image/svg+xml",".mp3":"audio/mpeg"},
 	_: {
-		client: {start:"_app/immutable/entry/start.BQ-iGdLI.js",app:"_app/immutable/entry/app.Bei9wNXY.js",imports:["_app/immutable/entry/start.BQ-iGdLI.js","_app/immutable/chunks/CK069zXf.js","_app/immutable/chunks/Df84TsxU.js","_app/immutable/entry/app.Bei9wNXY.js","_app/immutable/chunks/Df84TsxU.js","_app/immutable/chunks/xihTtKlq.js"],stylesheets:[],fonts:[],uses_env_dynamic_public:false},
+		client: {start:"_app/immutable/entry/start.B6MyGpYg.js",app:"_app/immutable/entry/app.CgdAmn79.js",imports:["_app/immutable/entry/start.B6MyGpYg.js","_app/immutable/chunks/BeWXZhTI.js","_app/immutable/chunks/CgVQcZ4Z.js","_app/immutable/entry/app.CgdAmn79.js","_app/immutable/chunks/CgVQcZ4Z.js","_app/immutable/chunks/xihTtKlq.js"],stylesheets:[],fonts:[],uses_env_dynamic_public:false},
 		nodes: [
 			__memo(() => import('./nodes/0.js')),
 			__memo(() => import('./nodes/1.js'))

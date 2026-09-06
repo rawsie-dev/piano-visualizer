@@ -1,5 +1,5 @@
 import "../../chunks/index-server.js";
-import { i as ensure_array_like, n as attr_style, r as derived, s as stringify, t as attr_class } from "../../chunks/server.js";
+import { a as head, i as ensure_array_like, n as attr_style, r as derived, s as stringify, t as attr_class } from "../../chunks/server.js";
 import "@tonejs/midi";
 import "tone";
 //#endregion
@@ -66,6 +66,11 @@ function _page($$renderer, $$props) {
 		function getBlackKeyPosition(midi) {
 			return whiteKeyMidis.filter((key) => key < midi).length / whiteKeyMidis.length * 100;
 		}
+		head("1uha8ag", $$renderer, ($$renderer) => {
+			$$renderer.title(($$renderer) => {
+				$$renderer.push(`<title> Piano - Rawsie </title>`);
+			});
+		});
 		$$renderer.push(`<div class="app svelte-1uha8ag"><div class="visualizer svelte-1uha8ag"><div class="notes svelte-1uha8ag"><!--[-->`);
 		const each_array = ensure_array_like(visibleNotes());
 		for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {

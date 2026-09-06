@@ -664,6 +664,9 @@
   }
 </script>
 
+<svelte:head>
+	<title> Piano - Rawsie </title>
+</svelte:head>
 
 <div class="app">
 <div class="visualizer">
