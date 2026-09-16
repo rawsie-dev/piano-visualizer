@@ -5,8 +5,9 @@
 	import { Midi } from '@tonejs/midi';
 	import * as Tone from 'tone';
 
+  
   const tracks = [Awakening, Rawsie];
-  let currentTrackIndex = $state(1);
+  let currentTrackIndex = $state(0);
 
 	type MidiEvent =
 		| {
@@ -144,6 +145,7 @@
 	let currentTime = $state(0);
   let isPlaying = $state(false);
   let isPianoLoaded = $state(false);
+  let loopCurrentTrack = $state(false);
 
   const LOOKAHEAD_SECONDS = 8;
 
@@ -182,12 +184,16 @@
   function updatePlaybackTime() {
     const transport = Tone.getTransport();
 
-    if (midiData && transport.seconds >= midiData.duration) {
+    if (midiData && transport.seconds >= midiData.duration + 3) {
       currentTime = midiData.duration;
-      transport.pause();
+      // transport.pause();
       isPlaying = false;
       releaseAllNotes();
-      // stopMidi();
+      if (loopCurrentTrack) {
+        playMidi();
+      } else {
+        nextTrack(true);
+      }
       return;
     }
 
@@ -430,10 +436,16 @@
 		const transport = Tone.getTransport();
 
     cancelPauseReleaseTimer();
+    
+    if (currentTime >= midiData.duration) {
+      transport.position = 0;
+      currentTime = 0;
+    }
+
 
     if (!isScheduled) {
       transport.stop();
-      transport.position = 0;
+      transport.seconds = currentTime;
 
       sustainPedal = false;
       heldNotes.clear();
@@ -528,13 +540,15 @@
     window.removeEventListener('pointercancel', windowPointerUp);
   }
 
-  async function nextTrack() {
+  async function nextTrack(startPlaying: boolean) {
     stopMidi();
 
     currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
 
     await loadTrack(currentTrackIndex);
     releaseAllNotes();
+
+    if (startPlaying) playMidi();
   }
 
   function getActiveNotesAtTime(time: number): VisualNote[] {
@@ -754,6 +768,11 @@
     >
       Stop
     </button>
+
+    <label class="loop-control">
+      <input type="checkbox" bind:checked={loopCurrentTrack} />
+      Loop track
+    </label>
   </div>
 
   <div class="seek-controls">
@@ -779,7 +798,7 @@
 	<p>Loading MIDI...</p>
 {/if}
 <div class="next-track-container">
-  <button class="next-track" onclick={nextTrack}>
+  <button class="next-track" onclick={() => nextTrack(false)}>
     Next track
   </button>
 </div>
@@ -830,6 +849,10 @@
     width: 100%;
     max-width: 1300px;
     margin: 10px auto 0;
+  }
+
+  .loop-control {
+    text-align: center;
   }
 
 
