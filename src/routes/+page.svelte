@@ -182,6 +182,15 @@
   function updatePlaybackTime() {
     const transport = Tone.getTransport();
 
+    if (midiData && transport.seconds >= midiData.duration) {
+      currentTime = midiData.duration;
+      transport.pause();
+      isPlaying = false;
+      releaseAllNotes();
+      // stopMidi();
+      return;
+    }
+
     currentTime = transport.seconds;
 
     if (isPlaying) {
@@ -728,11 +737,14 @@
         Pause
       </button>
     {:else}
-      <button
-        onclick={playMidi}
-        disabled={!isPianoLoaded}
-      >
-        {currentTime > 0 ? 'Resume' : 'Play'}
+      <button onclick={playMidi} disabled={!isPianoLoaded}>
+        {#if currentTime <= 0}
+          Play
+        {:else if currentTime >= (midiData?.duration ?? 0)}
+          Replay
+        {:else}
+          Resume
+        {/if}
       </button>
     {/if}
 
