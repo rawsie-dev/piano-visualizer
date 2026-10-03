@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import Awakening from '$lib/assets/midi/Awakening.mid';
+	import Awakening from '$lib/assets/midi/Awakening - Extended.mid';
   import Rawsie from '$lib/assets/midi/Rawsie.mid';
 	import { Midi } from '@tonejs/midi';
 	import * as Tone from 'tone';
